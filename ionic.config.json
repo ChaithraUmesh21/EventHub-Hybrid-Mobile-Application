@@ -1,0 +1,7 @@
+{
+  "name": "EventHub",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
