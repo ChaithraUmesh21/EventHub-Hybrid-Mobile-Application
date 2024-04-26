@@ -1,17 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- Dropdown button to choose location -->
+  <ion-button (click)="openLocationPopover()" expand="full">
+    Choose your Location
+  </ion-button>
+
+  <!-- Popover content for selecting location -->
+  <ion-popover-controller>
+    <ion-searchbar placeholder="Search City"></ion-searchbar>
+    <ion-list>
+      <ion-item *ngFor="let city of cities" (click)="selectLocation(city)">
+        {{ city }}
+      </ion-item>
+    </ion-list>
+  </ion-popover-controller>
+
+  <!-- List of cities for current location -->
+  <ion-list>
+    <ion-item *ngFor="let city of cities">
+      {{ city }}
+    </ion-item>
+  </ion-list>
+
 </ion-content>
